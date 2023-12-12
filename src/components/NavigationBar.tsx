@@ -5,7 +5,7 @@ interface NavProps {
 
 const NavigationBar = ({ pages, onSelectPage }: NavProps) => {
   return (
-    <ul className="nav justify-content-center">
+    <ul className="nav">
       {pages.map((page, index) => (
         <li
           className={"list-group-item index" + index}
