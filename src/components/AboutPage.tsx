@@ -26,7 +26,7 @@ const AboutPage = ({ data }: AboutPageProps) => {
 
   return (
     <div>
-      <h2>About Page</h2>
+      <h2>About Us</h2>
       <div className="about-card-container">{aboutCards}</div>
     </div>
   );

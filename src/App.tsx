@@ -5,9 +5,12 @@ import HomePage from "./components/HomePage";
 import NewsletterPage from "./components/NewsletterPage";
 import ArchivePage from "./components/ArchivePage";
 import "./App.css";
+import Footer from "./components/Footer";
+import Title from "./components/Title";
+import ResourcesPage from "./components/ResourcesPage";
 
 function App() {
-  const pages = ["Home", "About", "Newsletter", "Archive"];
+  const pages = ["Home", "About", "Newsletter", "Resources", "Archive"];
   const [page, setPage] = useState("Home");
 
   //About
@@ -27,19 +30,27 @@ function App() {
     <HomePage />,
     <AboutPage data={aboutData} />,
     <NewsletterPage />,
+    <ResourcesPage></ResourcesPage>,
     <ArchivePage />,
   ];
 
   return (
     <>
-      <div>
-        <h1 id="title">African Feminist Society</h1>
-      </div>
       <NavigationBar
         pages={pages}
         onSelectPage={(selectPage: string) => setPage(selectPage)}
       ></NavigationBar>
-      {pagesNode[pages.indexOf(page)]}
+      <Title onHome={page === "Home"}></Title>
+      <div id="page-container">{pagesNode[pages.indexOf(page)]}</div>
+      <Footer
+        pages={pages}
+        onSelectPage={(selectPage: string) => setPage(selectPage)}
+      ></Footer>
+      Image by
+      <a href="https://www.freepik.com/free-vector/hand-drawn-collection-different-profile-icons_17786264.htm#query=person&position=15&from_view=search&track=sph&uuid=c84a5048-5227-4bbc-bd39-0519a21e3fe2">
+        Freepik
+      </a>
+      <img src="../components/newsletterback1.png" />
     </>
   );
 }
